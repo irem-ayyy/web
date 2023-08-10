@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Roboto");
+
+        html {
+            font-family: 'Roboto' sans-serif;
+            font-size: 16px;
+        }
+
+        :root {
+            
+            --secondary: #6F7E8C;
+            --text: #212121;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            background-color: sandybrown;
+            padding: 24px;
+            max-width: fit-content;
+            width: 100%;
+            padding-top: 12px;
+            border-radius: 16px;
+            margin-bottom: 10px;
+            margin-left: 595px;
+        }
+
+        .box h2 {
+            margin: 0px;
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+            font-size: 1.5rem;
+        }
+
+        .centering {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vh;
+            background: var(--primary);
+        }
+
+        .input_wrapper {
+            position: relative;
+            padding: 15px 0 0;
+        }
+
+        .input_field {
+            border: 1px solid var(--secondary);
+            font-size: 1rem;
+            border-radius: 4px;
+            color: var(--text);
+            padding: 8px;
+            padding-right: 32px;
+            background: transparent;
+            transition: border-color 0.2s;
+        }
+
+        .input_field::placeholder {
+            color: transparent;
+        }
+
+        .input_field:placeholder-shown ~ .input_label {
+            font-size: 1rem;
+            cursor: text;
+            color: var(--secondary);
+            top: 24px;
+        }
+
+        label,
+        .input_field:focus ~ .input_label {
+            position: absolute;
+            top: 6px;
+            padding: 0 4px;
+            background-color: white;
+            display: block;
+            font-size: 14px;
+            left: 8px;
+            color: var(--secondary);
+            transition: 0.3s;
+        }
+
+        .input_field:focus {
+            border: 1px solid var(--primary);
+            outline: 1px solid var(--primary);
+        }
+
+        .input_icon {
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            width: 28px;
+            height: 28px;
+            transform: translate(-50%, -50%);
+            transform-origin: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="centering"><!--isim kodu-->
+        <div class="box">
+            <div class="input_wrapper">
+                <input 
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    title="Please enter your name"
+                    pattern="^[A-Za-z\s]+$"
+                    required
+                    class="input_field"
+                >
+                <label 
+                    for="name"
+                    class="input_label"
+                >
+                    Name
+                </label>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="input_wrapper">
+                <input 
+                id="password"
+                type="password"
+                name="password"
+                placeholder="Your Password"
+                title="Minimum 6 characters at
+                       least 1 Alphabet and 1 Number"
+                pattern="^(?=,*[A-Za-z]) (?=,*\d) [A-Za-z\d] {6,}$"
+                required
+                class="input_field"
+                placeholder="Your Password"
+                >
+                <label 
+                    for="password"
+                    class="input_label"
+                >
+                    Password
+               </label>
+               <img 
+               src="searchmagnifierinterfacesymbol1_79893 - Kopya.png" 
+               alt="Search Icon"
+               title="Search Icon"
+               class="input_icon"
+               >
+            </div>
+        </div>
+    </div>   
+
+    <script>
+
+        const input = document.querySelector(".input_field");
+        const inputIcon = document.querySelector(".input_icon");
+
+        inputIcon.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            inputIcon.setAttribute(
+                'src',
+                input.getAttribute('type') === 'password' ?
+                'searchmagnifierinterfacesymbol1_79893-off.png'
+                    :
+                'searchmagnifierinterfacesymbol1_79893.png'
+            );
+            input.setAttribute(
+                'type',
+                input.getAttribute('type') === 'password' ?
+                'text'
+                    :
+                'password'
+            );
+        });
+    </script>
+</body>
+</html>
