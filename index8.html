@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <style>
+        body {
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .text {
+            color: aliceblue;
+            opacity: 0;
+            font-size: 270px;
+            white-space: nowrap;
+            margin: 5px;
+            position: absolute;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="text" id="text1">Hi</div>
+    <div class="text" id="text2">How</div>
+    <div class="text" id="text3">Are</div>
+    <div class="text" id="text4">You</div>
+    <div class="text" id="text5">?</div>
+
+    <script>
+        const textElements = document.querySelectorAll('.text');
+        let currentIndex = 0;
+
+        function showText() {
+            if (currentIndex < textElements.length) {
+                textElements[currentIndex].style.transition = 'opacity 1s';
+                textElements[currentIndex].style.opacity = '1';
+                setTimeout(hideText, 2000); // Metni 2 saniye sonra gizle
+            }
+        }
+
+        function hideText() {
+            textElements[currentIndex].style.transition = 'opacity 1s';
+            textElements[currentIndex].style.opacity = '0';
+            currentIndex++;
+            if (currentIndex < textElements.length) {
+                setTimeout(showText, 1000); // Bir sonraki metni 1 saniye sonra göster
+            }
+        }
+
+        showText(); // İlk metni göstermeye başla
+    </script>
+</body>
+</html>
+
+
