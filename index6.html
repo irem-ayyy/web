@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="indexs2.css">
+</head>
+<body>
+    
+    <div class="container">
+        <p class="letter letter-M">M</p>
+        <div class="moon">
+            <div class="orbit">
+                <p>O</p>
+            </div>
+        </div>
+        <p class="letter letter-N">N</p>
+    </div>
+
+    <div id="clock"></div>
+
+    <script>
+        const clock = document.getElementById('clock');
+        const addZero = x => x < 10 ? '0' + x : x;
+
+        function showTime() {
+            const date = new Date();
+            const hour = addZero(date.getHours());
+            const minute = addZero(date.getMinutes());
+            const second = addZero(date.getSeconds());
+            clock.innerText = `${hour}:${minute}:${second}`;
+        }
+
+        setInterval(showTime, 1000);
+    </script>
+</body>
+</html>
