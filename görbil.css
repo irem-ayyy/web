@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(229, 206, 251);
+}
+h1 {
+    font-size: 15vw;
+    margin: 100px;
+    margin-left: 400px;
+    background-image: url(pnt.jpg);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.img {
+    top: 25px;
+    left: 210px;
+    position: relative;
+    background: url(çiçek.jpg);
+    width: 800px;
+    height: 600px;
+    background-size: cover;
+}
+
+.img:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background: url(pnt.jpg);
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: screen;
+}
